@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/tools")
@@ -23,5 +25,12 @@ public class ToolsController {
         Tools newTools = toolsService.saveTools(tools);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(ToolsMapper.toConvertResponse(newTools));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ToolsResponse>> listtools(){
+        List<Tools> toolsList = toolsService.findTools();
+        List<ToolsResponse> newList = toolsList.stream().map(tools -> ToolsMapper.toConvertResponse(tools)).toList();
+        return ResponseEntity.ok().body(newList);
     }
 }

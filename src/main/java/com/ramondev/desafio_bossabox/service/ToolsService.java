@@ -6,6 +6,8 @@ import com.ramondev.desafio_bossabox.repository.ToolsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class ToolsService {
@@ -14,6 +16,10 @@ public class ToolsService {
 
     public Tools saveTools(Tools tools){
         return toolsRepository.save(tools);
+    }
+
+    public List<Tools> findTools(){
+        return toolsRepository.findAll();
     }
 
 
