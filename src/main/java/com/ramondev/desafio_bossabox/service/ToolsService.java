@@ -31,5 +31,9 @@ public class ToolsService {
         return toolsRepository.findById(id);
     }
 
+    public void deleteBy(Long id){
+        toolsRepository.deleteById(id);
+    }
+
 
 }

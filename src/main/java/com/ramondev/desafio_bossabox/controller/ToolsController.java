@@ -5,7 +5,6 @@ import com.ramondev.desafio_bossabox.dtos.ToolsResponse;
 import com.ramondev.desafio_bossabox.entity.Tools;
 import com.ramondev.desafio_bossabox.mapper.ToolsMapper;
 import com.ramondev.desafio_bossabox.service.ToolsService;
-import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,6 +39,13 @@ public class ToolsController {
         return toolsService.findById(id)
                 .map(tools -> ResponseEntity.ok(ToolsMapper.toConvertResponse(tools)))
                 .orElse(ResponseEntity.notFound().build());
+
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deletebyid(@PathVariable Long id){
+        toolsService.deleteBy(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
     }
 }
