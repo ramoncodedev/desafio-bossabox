@@ -4,32 +4,26 @@ package com.ramondev.desafio_bossabox.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import javax.swing.text.html.HTML;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 @Getter
+@Setter
 @Entity
-@Table(name = "tools")
-public class Tools {
-
+@Table(name = "users")
+public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String title;
+    private String name;
 
     @Column(nullable = false)
-    private String link;
+    private String email;
 
-
-   private List<String> tags;
+    @Column(nullable = false)
+    private String password;
 }

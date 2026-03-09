@@ -1,12 +1,9 @@
 package com.ramondev.desafio_bossabox.service;
 
 
-import com.ramondev.desafio_bossabox.dtos.ToolsResponse;
 import com.ramondev.desafio_bossabox.entity.Tools;
-import com.ramondev.desafio_bossabox.mapper.ToolsMapper;
 import com.ramondev.desafio_bossabox.repository.ToolsRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +15,9 @@ public class ToolsService {
 
     private final ToolsRepository toolsRepository;
 
+
     public Tools saveTools(Tools tools){
+
         return toolsRepository.save(tools);
     }
 
@@ -31,9 +30,12 @@ public class ToolsService {
         return toolsRepository.findById(id);
     }
 
+
     public void deleteBy(Long id){
         toolsRepository.deleteById(id);
     }
+
+
 
 
 }

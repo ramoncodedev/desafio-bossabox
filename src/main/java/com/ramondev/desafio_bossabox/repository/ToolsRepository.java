@@ -11,5 +11,8 @@ import java.util.List;
 @Repository
 public interface ToolsRepository extends JpaRepository<Tools, Long> {
 
+    default boolean existTitle(String title) {
+        return false;
+    }
 
 }

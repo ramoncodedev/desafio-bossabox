@@ -1,8 +1,8 @@
 package com.ramondev.desafio_bossabox.mapper;
 
 
-import com.ramondev.desafio_bossabox.dtos.ToolsRequest;
-import com.ramondev.desafio_bossabox.dtos.ToolsResponse;
+import com.ramondev.desafio_bossabox.dtos.Request.ToolsRequest;
+import com.ramondev.desafio_bossabox.dtos.Response.ToolsResponse;
 import com.ramondev.desafio_bossabox.entity.Tools;
 import lombok.experimental.UtilityClass;
 
@@ -26,4 +26,6 @@ public class ToolsMapper {
                 .tags(tools.getTags())
                 .build();
     }
+
+
 }

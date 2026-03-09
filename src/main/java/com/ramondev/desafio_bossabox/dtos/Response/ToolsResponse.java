@@ -1,4 +1,4 @@
-package com.ramondev.desafio_bossabox.dtos;
+package com.ramondev.desafio_bossabox.dtos.Response;
 
 import lombok.Builder;
 

@@ -1,7 +1,7 @@
 package com.ramondev.desafio_bossabox.controller;
 
-import com.ramondev.desafio_bossabox.dtos.ToolsRequest;
-import com.ramondev.desafio_bossabox.dtos.ToolsResponse;
+import com.ramondev.desafio_bossabox.dtos.Request.ToolsRequest;
+import com.ramondev.desafio_bossabox.dtos.Response.ToolsResponse;
 import com.ramondev.desafio_bossabox.entity.Tools;
 import com.ramondev.desafio_bossabox.mapper.ToolsMapper;
 import com.ramondev.desafio_bossabox.service.ToolsService;
@@ -35,12 +35,15 @@ public class ToolsController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ToolsResponse> findByTag(@PathVariable Long id){
+    public ResponseEntity<ToolsResponse> findById(@PathVariable Long id){
         return toolsService.findById(id)
                 .map(tools -> ResponseEntity.ok(ToolsMapper.toConvertResponse(tools)))
                 .orElse(ResponseEntity.notFound().build());
 
     }
+
+
+
 
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deletebyid(@PathVariable Long id){
