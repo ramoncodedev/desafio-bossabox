@@ -5,6 +5,7 @@ import com.ramondev.desafio_bossabox.Exceptions.ResourceNotFoundExceptions;
 import com.ramondev.desafio_bossabox.entity.User;
 import com.ramondev.desafio_bossabox.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +16,12 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public User saveUser(User user){
+
+        String password = user.getPassword();
+        user.setPassword(passwordEncoder.encode(password));
 
         existEmail(user.getEmail());
         return userRepository.save(user);
