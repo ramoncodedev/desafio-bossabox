@@ -1,4 +1,4 @@
-package com.ramondev.desafio_bossabox.service;
+package com.ramondev.desafio_bossabox.config;
 
 
 import com.ramondev.desafio_bossabox.repository.UserRepository;

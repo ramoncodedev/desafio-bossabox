@@ -1,4 +1,4 @@
-package config;
+package com.ramondev.desafio_bossabox.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -37,6 +37,7 @@ public class SpringConfig {
         return  authenticationConfiguration.getAuthenticationManager();
 
     }
+
 
     @Bean
     public PasswordEncoder passwordEncoder(){
