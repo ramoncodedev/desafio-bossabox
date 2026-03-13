@@ -50,7 +50,7 @@ public class AuthControler {
 
     }
 
-    @GetMapping("/listuser")
+    @GetMapping("/list")
     public ResponseEntity<List<UserResponse>> findGetList(){
         List<User> users = userService.findList();
         List<UserResponse> newList = users.stream().map(user -> UserMapper.toConvertReponse(user)).toList();
